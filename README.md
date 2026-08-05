@@ -1,6 +1,6 @@
 # Ali · Project Health Agent
 
-Ali is a working agentic project-health prototype built around an editable browser-local dashboard. It is not a Scoro integration and does not copy Scoro ELI branding or product behavior.
+Ali is a working agentic project-health prototype built around an editable browser-local dashboard.
 
 Ali can inspect the selected project's live data, choose typed tools, explain evidence, ask for missing information, create a project-version-bound proposal, simulate it on a deep copy, require approval, apply the approved change, rerun health analysis, verify the result, and undo through a per-project snapshot stack.
 
