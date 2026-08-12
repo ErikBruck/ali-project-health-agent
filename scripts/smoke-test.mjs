@@ -1,7 +1,10 @@
 import { spawn } from "node:child_process";
 
 const port = 3100;
-const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--hostname", "127.0.0.1", "--port", String(port)], { stdio: ["ignore", "pipe", "pipe"] });
+const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--hostname", "127.0.0.1", "--port", String(port)], {
+  stdio: ["ignore", "pipe", "pipe"],
+  env: { ...process.env, OPENAI_API_KEY: "", OPENAI_MODEL: "" },
+});
 const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 async function ready() {
