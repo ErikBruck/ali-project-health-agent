@@ -7,3 +7,9 @@ npm-debug.log*
 *.tsbuildinfo
 .DS_Store
 project-health-agent.zip
+playwright-report/
+test-results/
+
+# Generated local agent instructions
+AGENTS.md
+CLAUDE.md

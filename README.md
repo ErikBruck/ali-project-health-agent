@@ -8,6 +8,19 @@ Ali is explicitly multi-turn. Every project keeps its own conversation phase, cu
 
 The existing dashboard remains intact: project switching, creation, duplication, manual editing, deterministic analysis, localStorage persistence, and JSON import/export continue to work.
 
+## Product preview
+
+<table>
+  <tr>
+    <th>Desktop workspace</th>
+    <th>Mobile agent</th>
+  </tr>
+  <tr>
+    <td width="72%"><img src="docs/screenshots/ali-dashboard.png" alt="Ali project health dashboard with the agent panel open" /></td>
+    <td width="28%"><img src="docs/screenshots/ali-mobile-agent.png" alt="Ali full-screen mobile agent" /></td>
+  </tr>
+</table>
+
 ## Modes
 
 Without credentials, **Local demo agent** uses a deterministic natural-language router. It extracts live task/person/date/percentage/status references and calls the same pure tools and proposal machinery as model mode. It is not an LLM.
@@ -80,7 +93,7 @@ IDLE → INVESTIGATING → NEEDS_CLARIFICATION → PLANNING
 
 ## Run locally
 
-Requires Node.js 20.9 or newer.
+Requires Node.js 20.19 or newer.
 
 ```bash
 npm install
@@ -109,11 +122,14 @@ npm run lint
 npm run build
 npm run test:capabilities
 npm run test:smoke
+npm run test:e2e
 ```
 
 `test:capabilities` directly loads the TypeScript proposal/local-agent code and verifies the multi-turn scenarios A–E, versioning, no pre-approval mutation, stepwise apply, exact undo, stale rejection, duplicate approval rejection, deferral, task transfer/rebalance, invalid dates, duplicate-name clarification, project isolation, fallback disclosure, real trace results, and malformed/empty project normalization.
 
 `test:smoke` starts the production server and exercises the live `/api/agent` endpoint for multi-turn clarification/planning, investigation, budget reforecast, scope strategy, task ownership/allocation transfer, task status, follow-up task creation, checklist creation, deadline change, and recovery-plan simulation.
+
+`test:e2e` starts an isolated local-mode server and uses Playwright with Chromium to verify the browser UI. It covers evidence-backed investigation, approval-gated mutation, verification, exact undo, and the full-screen mobile agent flow. Install the browser once with `npx playwright install chromium`.
 
 ## Five-minute demo
 
